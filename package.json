@@ -1,0 +1,14 @@
+{
+  "name": "turhapalsu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "webpack -d --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^1.14.0"
+  }
+}
