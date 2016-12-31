@@ -1,10 +1,10 @@
 import { h, render, Component } from 'preact';
+import Header from './components/header';
 
-class HelloWorld extends Component {
+class App extends Component {
   render() {
-    const hello = 'helaaa'
-    return <span>{ `${hello} world` }</span>
+    return <Header />
   }
 }
 
-render(<HelloWorld />, document.getElementById('app'))
+render(<App />, document.getElementById('app'))
