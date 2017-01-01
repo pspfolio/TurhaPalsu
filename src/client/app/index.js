@@ -1,16 +1,10 @@
 import { h, render, Component } from 'preact';
-import Header from './components/header';
-import Message from './components/message';
-import Settings from './components/settings';
+import Dashboard from './components/dashboard';
 
 class App extends Component {
   render() {
     return (
-      <div className='content'>
-        <Header />
-        <Message />
-        <Settings />
-      </div>
+      <Dashboard />
     )
   }
 }
