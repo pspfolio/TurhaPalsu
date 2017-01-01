@@ -1,19 +1,19 @@
 import { h, Component } from 'preact';
 
 export default class Settings extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handlePlayClick = this.handlePlayClick.bind(this);
     this.handleRestartClick = this.handleRestartClick.bind(this);
   }
 
   handlePlayClick() {
-    console.log("Play clicked");
+    this.props.runningSince ? this.props.handleTimerPause() : this.props.handleTimerStart();
   }
 
   handleRestartClick() {
-    console.log("Restart clicked")
+    this.props.handleTimerRestart();
   }
 
   render() {
@@ -26,7 +26,9 @@ export default class Settings extends Component {
         <input type='number' id='salary' />
 
         <div onClick={ this.handlePlayClick } className='btn-play'>
-          <h3>Play</h3>
+          {
+            this.props.runningSince ? <h3>Pause</h3> : <h3>Play</h3>
+          }
         </div>
 
         <div onClick={ this.handleRestartClick } className='btn-play'>

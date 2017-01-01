@@ -10,9 +10,26 @@ export default class Dashboard extends Component {
     this.state = {
       persons: 0,
       salary: 0,
-      elapsed: 5456099,
-      runningSince: Date.now()
+      elapsed: 0,
+      runningSince: null
     }
+
+    this.handleTimerPause = this.handleTimerPause.bind(this);
+    this.handleTimerStart = this.handleTimerStart.bind(this);
+    this.handleTimerRestart = this.handleTimerRestart.bind(this);
+  }
+
+  handleTimerPause() {
+    const elapsed = Date.now() - this.state.runningSince;
+    this.setState({ elapsed, runningSince: null });
+  }
+
+  handleTimerStart() {
+    this.setState({ runningSince: Date.now() });
+  }
+
+  handleTimerRestart() {
+    this.setState({ runningSince: null, elapsed: 0 });
   }
 
   render() {
@@ -20,7 +37,11 @@ export default class Dashboard extends Component {
       <div className='content'>
         <Header />
         <Message runningSince={ this.state.runningSince } elapsed={ this.state.elapsed }/>
-        <Settings />
+        <Settings
+          runningSince={ this.state.runningSince }
+          handleTimerStart={ this.handleTimerStart }
+          handleTimerRestart={ this.handleTimerRestart }
+          handleTimerPause={ this.handleTimerPause } />
       </div>
     )
   }
