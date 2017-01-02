@@ -22,6 +22,11 @@ export default class Settings extends Component {
     this.props.handlePersonsAdded(value);
   }
 
+  handleSalaryChanged(event) {
+    const value = event.target.value;
+    this.props.handleSalaryAdded(value);
+  }
+
   render() {
     return (
       <div className='settings'>

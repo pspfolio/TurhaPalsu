@@ -18,6 +18,7 @@ export default class Dashboard extends Component {
     this.handleTimerStart = this.handleTimerStart.bind(this);
     this.handleTimerRestart = this.handleTimerRestart.bind(this);
     this.handlePersonsAdded = this.handlePersonsAdded.bind(this);
+    this.handleSalaryAdded = this.handleSalaryAdded.bind(this);
   }
 
   handleTimerPause() {
@@ -35,7 +36,10 @@ export default class Dashboard extends Component {
 
   handlePersonsAdded(num) {
     this.setState({ persons: num })
-    console.log(this.state)
+  }
+
+  handleSalaryAdded(salary) {
+    this.setState({ salary })
   }
 
   render() {
@@ -48,6 +52,7 @@ export default class Dashboard extends Component {
           elapsed={ this.state.elapsed }/>
         <Settings
           runningSince={ this.state.runningSince }
+          handleSalaryAdded={ this.handleSalaryAdded }
           handlePersonsAdded={ this.handlePersonsAdded }
           handleTimerStart={ this.handleTimerStart }
           handleTimerRestart={ this.handleTimerRestart }
