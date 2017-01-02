@@ -6,6 +6,7 @@ export default class Settings extends Component {
 
     this.handlePlayClick = this.handlePlayClick.bind(this);
     this.handleRestartClick = this.handleRestartClick.bind(this);
+    this.handlePersonsChanged = this.handlePersonsChanged.bind(this);
   }
 
   handlePlayClick() {
@@ -16,11 +17,16 @@ export default class Settings extends Component {
     this.props.handleTimerRestart();
   }
 
+  handlePersonsChanged(event) {
+    const value = event.target.value;
+    this.props.handlePersonsAdded(value);
+  }
+
   render() {
     return (
       <div className='settings'>
         <label for='persons'>Henkilöitä</label>
-        <input type='number' id='persons' />
+        <input type='number' id='persons' onChange={ this.handlePersonsChanged } />
 
         <label for='salary'>Avg tuntipalkka</label>
         <input type='number' id='salary' />

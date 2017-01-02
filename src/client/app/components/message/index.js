@@ -17,7 +17,7 @@ export default class Message extends Component {
   render() {
     const elapsed = window.helper.handleElapsedTime(this.props.elapsed, this.props.runningSince);
     return (
-      <p>Palaveri on kustantanut 59 euroa. Se on kestänyt { elapsed }. Siihen osallistuu 6 henkilöä</p>
+      <p>Palaveri on kustantanut 59 euroa. Se on kestänyt { elapsed }. Siihen osallistuu { this.props.persons } henkilöä</p>
     )
   }
 }
