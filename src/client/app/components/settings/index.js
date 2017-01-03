@@ -7,6 +7,7 @@ export default class Settings extends Component {
     this.handlePlayClick = this.handlePlayClick.bind(this);
     this.handleRestartClick = this.handleRestartClick.bind(this);
     this.handlePersonsChanged = this.handlePersonsChanged.bind(this);
+    this.handleSalaryChanged = this.handleSalaryChanged.bind(this);
   }
 
   handlePlayClick() {
@@ -34,7 +35,7 @@ export default class Settings extends Component {
         <input type='number' id='persons' onChange={ this.handlePersonsChanged } />
 
         <label for='salary'>Avg tuntipalkka</label>
-        <input type='number' id='salary' />
+        <input type='number' id='salary' onChange={ this.handleSalaryChanged } />
 
         <div onClick={ this.handlePlayClick } className='btn-play'>
           {

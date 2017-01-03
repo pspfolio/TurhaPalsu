@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     super();
     this.state = {
       persons: 0,
-      salary: 0,
+      salary: 0.00,
       elapsed: 0,
       runningSince: null
     }
@@ -21,11 +21,19 @@ export default class Dashboard extends Component {
     this.handleSalaryAdded = this.handleSalaryAdded.bind(this);
   }
 
+  /*
+  Asetetaan timerin pause tilaan. Tallennetaan dashboardin tilaan kulunut aika,
+  josta jatkeaan, kun painetaan play painiketta
+   */
   handleTimerPause() {
-    const elapsed = Date.now() - this.state.runningSince;
+    const lastElapsed = Date.now() - this.state.runningSince;
+    const elapsed = lastElapsed + this.state.elapsed;
     this.setState({ elapsed, runningSince: null });
   }
 
+  /*
+  Käynnistetään ajastin  asettamalla käynnistyksen aloitusajankohta.
+  */
   handleTimerStart() {
     this.setState({ runningSince: Date.now() });
   }
@@ -39,6 +47,7 @@ export default class Dashboard extends Component {
   }
 
   handleSalaryAdded(salary) {
+    if(salary < 0) salary = 0.00;
     this.setState({ salary })
   }
 
@@ -47,6 +56,7 @@ export default class Dashboard extends Component {
       <div className='content'>
         <Header />
         <Message
+          salary={ this.state.salary }
           persons={ this.state.persons }
           runningSince={ this.state.runningSince }
           elapsed={ this.state.elapsed }/>
