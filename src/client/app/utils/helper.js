@@ -1,21 +1,24 @@
 window.helper = (function() {
 
-  function handleElapsedTime(elapsed,runningSince) {
+  function handleElapsedTime(elapsed, runningSince) {
+    const totalElapsed = getTotalElapsed(elapsed, runningSince);
+    return convertMillisecondsToReadable(totalElapsed)
+  }
+
+  function countSpendedMoney(elapsed, runningSince, salaryPerHour) {
+    const totalElapsed = getTotalElapsed(elapsed, runningSince);
+    const seconds = getRunnedBySeconds(totalElapsed);
+    const salaryPerSecond = salaryPerHour / 60 / 60;
+    return (seconds * salaryPerSecond).toFixed(2);
+  }
+
+  function getTotalElapsed(elapsed, runningSince) {
     let totalElapsed = elapsed;
     if(runningSince) {
       totalElapsed += Date.now() - runningSince;
     }
 
-    return convertMillisecondsToReadable(totalElapsed)
-  }
-
-  function countSpendedMoney(runningSince, salaryPerHour) {
-    if(runningSince) {
-      const seconds = getRunnedBySeconds(runningSince);
-      const salaryPerSecond = salaryPerHour / 60 / 60;
-      return (seconds * salaryPerSecond).toFixed(2);
-    }
-    return 0.00;
+    return totalElapsed;
   }
 
   function convertMillisecondsToReadable(milliseconds) {
@@ -36,8 +39,8 @@ window.helper = (function() {
     return padded;
   }
 
-  function getRunnedBySeconds(runningSince) {
-    const seconds = parseInt(((Date.now() - runningSince) / 1000));
+  function getRunnedBySeconds(elapsed) {
+    const seconds = parseInt(elapsed / 1000);
     return seconds;
   }
 
