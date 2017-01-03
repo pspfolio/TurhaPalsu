@@ -5,11 +5,11 @@ window.helper = (function() {
     return convertMillisecondsToReadable(totalElapsed)
   }
 
-  function countSpendedMoney(elapsed, runningSince, salaryPerHour) {
+  function countSpendedMoney(elapsed, runningSince, salaryPerHour, persons) {
     const totalElapsed = getTotalElapsed(elapsed, runningSince);
     const seconds = getRunnedBySeconds(totalElapsed);
     const salaryPerSecond = salaryPerHour / 60 / 60;
-    return (seconds * salaryPerSecond).toFixed(2);
+    return ((seconds * salaryPerSecond) * persons).toFixed(2);
   }
 
   function getTotalElapsed(elapsed, runningSince) {

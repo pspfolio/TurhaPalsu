@@ -14,7 +14,7 @@ export default class Message extends Component {
   }
 
   componentDidMount() {
-      this.updateInterval = setInterval(() => this.tick(), 500);
+      this.updateInterval = setInterval(this.tick, 500);
   }
 
   componentWillUnmount() {
@@ -24,7 +24,7 @@ export default class Message extends Component {
   tick() {
     const { handleElapsedTime, countSpendedMoney } = window.helper;
     const elapsed = handleElapsedTime(this.props.elapsed, this.props.runningSince);
-    const spendedMoney = countSpendedMoney(this.props.elapsed, this.props.runningSince, this.props.salary);
+    const spendedMoney = countSpendedMoney(this.props.elapsed, this.props.runningSince, this.props.salary, this.props.persons);
     this.setState({ spendedMoney, elapsed });
   }
 
