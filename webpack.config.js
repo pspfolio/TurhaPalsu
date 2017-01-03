@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-var APP_DIR = path.resolve(__dirname, 'src/client/app');
-var UTIL_DIR = path.resolve(__dirname, 'src/client/app/utils')
+var BUILD_DIR = path.resolve(__dirname, 'src/public');
+var APP_DIR = path.resolve(__dirname, 'src');
+var UTIL_DIR = path.resolve(__dirname, 'src/utils')
 
 
 module.exports = {
