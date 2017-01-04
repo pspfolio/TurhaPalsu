@@ -5,6 +5,6 @@
       console.log(err, "ERROR")
     });
   } else {
-    // Service worker is not supported
+    console.log("Serviceworker is not supported, keep going!");
   }
 })();
