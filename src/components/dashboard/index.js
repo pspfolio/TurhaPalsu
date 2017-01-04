@@ -3,6 +3,8 @@ import Header from '../header';
 import Message from '../message';
 import Settings from '../settings';
 
+import styles from './dashboard.css';
+
 export default class Dashboard extends Component {
 
   constructor() {
@@ -53,7 +55,7 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div className='content'>
+      <div className={styles.app}>
         <Header />
         <Message
           salary={ this.state.salary }
