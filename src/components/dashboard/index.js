@@ -56,12 +56,14 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div className={styles.app}>
-        <Header />
-        <Message
-          salary={ this.state.salary }
-          persons={ this.state.persons }
-          runningSince={ this.state.runningSince }
-          elapsed={ this.state.elapsed }/>
+        <div className={styles.headerContext}>
+          <Header />
+          <Message
+            salary={ this.state.salary }
+            persons={ this.state.persons }
+            runningSince={ this.state.runningSince }
+            elapsed={ this.state.elapsed }/>
+        </div>
         <Settings
           runningSince={ this.state.runningSince }
           handleSalaryAdded={ this.handleSalaryAdded }

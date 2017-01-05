@@ -1,3 +1,15 @@
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue","Calibri Light",Roboto,sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
 .app {
-  background-color: green;
+
+}
+
+.headerContext {
+  background-color: #FE8389;
 }

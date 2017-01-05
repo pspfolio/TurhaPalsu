@@ -1,11 +1,8 @@
 import { h, Component } from 'preact';
+import styles from './header.css';
 
-export default class Header extends Component {
-  render() {
-    return (
-      <header>
-        <h1>TP Turha palaveri </h1>
-      </header>
-    )
-  }
-}
+export default () => (
+  <header className={styles.bgColor}>
+    <h1 className={styles.title}>TP <span>Turha palaveri</span> </h1>
+  </header>
+)
