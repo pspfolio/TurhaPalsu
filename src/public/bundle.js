@@ -137,7 +137,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	__webpack_require__(/*! ../pwa.js */ 12);
+	__webpack_require__(/*! ../pwa.js */ 14);
 	
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -672,15 +672,15 @@
 	
 	var _header2 = _interopRequireDefault(_header);
 	
-	var _message = __webpack_require__(/*! ../message */ 6);
+	var _message = __webpack_require__(/*! ../message */ 10);
 	
 	var _message2 = _interopRequireDefault(_message);
 	
-	var _settings = __webpack_require__(/*! ../settings */ 7);
+	var _settings = __webpack_require__(/*! ../settings */ 11);
 	
 	var _settings2 = _interopRequireDefault(_settings);
 	
-	var _dashboard = __webpack_require__(/*! ./dashboard.css */ 8);
+	var _dashboard = __webpack_require__(/*! ./dashboard.css */ 12);
 	
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 	
@@ -759,24 +759,32 @@
 	    value: function render() {
 	      return (0, _preact.h)(
 	        'div',
-	        { className: _dashboard2.default.app },
+	        null,
 	        (0, _preact.h)(
 	          'div',
-	          { className: _dashboard2.default.headerContext },
+	          { className: _dashboard2.default.bgColor },
 	          (0, _preact.h)(_header2.default, null),
-	          (0, _preact.h)(_message2.default, {
-	            salary: this.state.salary,
-	            persons: this.state.persons,
-	            runningSince: this.state.runningSince,
-	            elapsed: this.state.elapsed })
+	          (0, _preact.h)(
+	            'section',
+	            { className: _dashboard2.default.context },
+	            (0, _preact.h)(_message2.default, {
+	              salary: this.state.salary,
+	              persons: this.state.persons,
+	              runningSince: this.state.runningSince,
+	              elapsed: this.state.elapsed })
+	          )
 	        ),
-	        (0, _preact.h)(_settings2.default, {
-	          runningSince: this.state.runningSince,
-	          handleSalaryAdded: this.handleSalaryAdded,
-	          handlePersonsAdded: this.handlePersonsAdded,
-	          handleTimerStart: this.handleTimerStart,
-	          handleTimerRestart: this.handleTimerRestart,
-	          handleTimerPause: this.handleTimerPause })
+	        (0, _preact.h)(
+	          'section',
+	          { className: _dashboard2.default.context },
+	          (0, _preact.h)(_settings2.default, {
+	            runningSince: this.state.runningSince,
+	            handleSalaryAdded: this.handleSalaryAdded,
+	            handlePersonsAdded: this.handlePersonsAdded,
+	            handleTimerStart: this.handleTimerStart,
+	            handleTimerRestart: this.handleTimerRestart,
+	            handleTimerPause: this.handleTimerPause })
+	        )
 	      );
 	    }
 	  }]);
@@ -801,7 +809,7 @@
 	
 	var _preact = __webpack_require__(/*! preact */ 3);
 	
-	var _header = __webpack_require__(/*! ./header.css */ 13);
+	var _header = __webpack_require__(/*! ./header.css */ 6);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
@@ -817,8 +825,8 @@
 	      'TP ',
 	      (0, _preact.h)(
 	        'span',
-	        null,
-	        'Turha palaveri'
+	        { className: _header2.default.titleSecondary },
+	        ' = Turha palaveri'
 	      ),
 	      ' '
 	    )
@@ -827,219 +835,25 @@
 
 /***/ },
 /* 6 */
-/*!*****************************************!*\
-  !*** ./src/components/message/index.js ***!
-  \*****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _preact = __webpack_require__(/*! preact */ 3);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Message = function (_Component) {
-	  _inherits(Message, _Component);
-	
-	  function Message(props) {
-	    _classCallCheck(this, Message);
-	
-	    var _this = _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this, props));
-	
-	    _this.state = {
-	      elapsed: '00:00:00',
-	      spendedMoney: 0.00
-	    };
-	
-	    _this.tick = _this.tick.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(Message, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.updateInterval = setInterval(this.tick, 500);
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      clearInterval(this.updateInterval);
-	    }
-	  }, {
-	    key: 'tick',
-	    value: function tick() {
-	      var _window$helper = window.helper,
-	          handleElapsedTime = _window$helper.handleElapsedTime,
-	          countSpendedMoney = _window$helper.countSpendedMoney;
-	
-	      var elapsed = handleElapsedTime(this.props.elapsed, this.props.runningSince);
-	      var spendedMoney = countSpendedMoney(this.props.elapsed, this.props.runningSince, this.props.salary, this.props.persons);
-	      this.setState({ spendedMoney: spendedMoney, elapsed: elapsed });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return (0, _preact.h)(
-	        'p',
-	        null,
-	        'Palaveri on kustantanut ',
-	        this.state.spendedMoney,
-	        ' euroa. Se on kest\xE4nyt ',
-	        this.state.elapsed,
-	        '. Siihen osallistuu ',
-	        this.props.persons,
-	        ' henkil\xF6\xE4. Keskipalkka on ',
-	        this.props.salary,
-	        ' euroa.'
-	      );
-	    }
-	  }]);
-	
-	  return Message;
-	}(_preact.Component);
-	
-	exports.default = Message;
-
-/***/ },
-/* 7 */
 /*!******************************************!*\
-  !*** ./src/components/settings/index.js ***!
+  !*** ./src/components/header/header.css ***!
   \******************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _preact = __webpack_require__(/*! preact */ 3);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Settings = function (_Component) {
-	  _inherits(Settings, _Component);
-	
-	  function Settings(props) {
-	    _classCallCheck(this, Settings);
-	
-	    var _this = _possibleConstructorReturn(this, (Settings.__proto__ || Object.getPrototypeOf(Settings)).call(this, props));
-	
-	    _this.handlePlayClick = _this.handlePlayClick.bind(_this);
-	    _this.handleRestartClick = _this.handleRestartClick.bind(_this);
-	    _this.handlePersonsChanged = _this.handlePersonsChanged.bind(_this);
-	    _this.handleSalaryChanged = _this.handleSalaryChanged.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(Settings, [{
-	    key: 'handlePlayClick',
-	    value: function handlePlayClick() {
-	      this.props.runningSince ? this.props.handleTimerPause() : this.props.handleTimerStart();
-	    }
-	  }, {
-	    key: 'handleRestartClick',
-	    value: function handleRestartClick() {
-	      this.props.handleTimerRestart();
-	    }
-	  }, {
-	    key: 'handlePersonsChanged',
-	    value: function handlePersonsChanged(event) {
-	      var value = event.target.value;
-	      this.props.handlePersonsAdded(value);
-	    }
-	  }, {
-	    key: 'handleSalaryChanged',
-	    value: function handleSalaryChanged(event) {
-	      var value = event.target.value;
-	      this.props.handleSalaryAdded(value);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return (0, _preact.h)(
-	        'div',
-	        { className: 'settings' },
-	        (0, _preact.h)(
-	          'label',
-	          { 'for': 'persons' },
-	          'Henkil\xF6it\xE4'
-	        ),
-	        (0, _preact.h)('input', { type: 'number', id: 'persons', onChange: this.handlePersonsChanged }),
-	        (0, _preact.h)(
-	          'label',
-	          { 'for': 'salary' },
-	          'Avg tuntipalkka'
-	        ),
-	        (0, _preact.h)('input', { type: 'number', id: 'salary', onChange: this.handleSalaryChanged }),
-	        (0, _preact.h)(
-	          'div',
-	          { onClick: this.handlePlayClick, className: 'btn-play' },
-	          this.props.runningSince ? (0, _preact.h)(
-	            'h3',
-	            null,
-	            'Pause'
-	          ) : (0, _preact.h)(
-	            'h3',
-	            null,
-	            'Play'
-	          )
-	        ),
-	        (0, _preact.h)(
-	          'div',
-	          { onClick: this.handleRestartClick, className: 'btn-play' },
-	          (0, _preact.h)(
-	            'h3',
-	            null,
-	            'Restart'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Settings;
-	}(_preact.Component);
-	
-	exports.default = Settings;
-
-/***/ },
-/* 8 */
-/*!************************************************!*\
-  !*** ./src/components/dashboard/dashboard.css ***!
-  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./dashboard.css */ 9);
+	var content = __webpack_require__(/*! !./../../../~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./header.css */ 7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 11)(content, {"sourceMap":true});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 9)(content, {"sourceMap":true});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./dashboard.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./dashboard.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./header.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./header.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1049,27 +863,28 @@
 	}
 
 /***/ },
-/* 9 */
-/*!*************************************************************************************************************************************************!*\
-  !*** ./~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./src/components/dashboard/dashboard.css ***!
-  \*************************************************************************************************************************************************/
+/* 7 */
+/*!*******************************************************************************************************************************************!*\
+  !*** ./~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./src/components/header/header.css ***!
+  \*******************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 10)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 8)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body {\r\n  min-height: 100%;\r\n  margin: 0;\r\n  font-family: \"Helvetica Neue\",\"Calibri Light\",Roboto,sans-serif;\r\n  text-rendering: optimizeLegibility;\r\n  -webkit-font-smoothing: antialiased;\r\n}\r\n\r\n.src-components-dashboard-___dashboard__app___2fVli {\r\n\r\n}\r\n\r\n.src-components-dashboard-___dashboard__headerContext___34Pu8 {\r\n  background-color: #FE8389;\r\n}\r\n", ""]);
+	exports.push([module.id, ".src-components-header-___header__header___1ppLC {\r\n  background-color: #FE8389;\r\n}\r\n\r\n.src-components-header-___header__title___2LAyN {\r\n  font-weight: 300;\r\n  margin: 0;\r\n  color: #fff;\r\n  font-size: 2em;\r\n  text-align: center;\r\n  padding: .5em;\r\n}\r\n\r\n.src-components-header-___header__titleSecondary___1W1dv {\r\n  font-size: .7em;\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"app": "src-components-dashboard-___dashboard__app___2fVli",
-		"headerContext": "src-components-dashboard-___dashboard__headerContext___34Pu8"
+		"header": "src-components-header-___header__header___1ppLC",
+		"title": "src-components-header-___header__title___2LAyN",
+		"titleSecondary": "src-components-header-___header__titleSecondary___1W1dv"
 	};
 
 /***/ },
-/* 10 */
+/* 8 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -1128,7 +943,7 @@
 
 
 /***/ },
-/* 11 */
+/* 9 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -1383,7 +1198,295 @@
 
 
 /***/ },
+/* 10 */
+/*!*****************************************!*\
+  !*** ./src/components/message/index.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _preact = __webpack_require__(/*! preact */ 3);
+	
+	var _message = __webpack_require__(/*! ./message.css */ 15);
+	
+	var _message2 = _interopRequireDefault(_message);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Message = function (_Component) {
+	  _inherits(Message, _Component);
+	
+	  function Message(props) {
+	    _classCallCheck(this, Message);
+	
+	    var _this = _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this, props));
+	
+	    _this.state = {
+	      elapsed: '00:00:00',
+	      spendedMoney: 0.00
+	    };
+	
+	    _this.tick = _this.tick.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Message, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.updateInterval = setInterval(this.tick, 50);
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      clearInterval(this.updateInterval);
+	    }
+	  }, {
+	    key: 'tick',
+	    value: function tick() {
+	      var _window$helper = window.helper,
+	          handleElapsedTime = _window$helper.handleElapsedTime,
+	          countSpendedMoney = _window$helper.countSpendedMoney;
+	
+	      var elapsed = handleElapsedTime(this.props.elapsed, this.props.runningSince);
+	      var spendedMoney = countSpendedMoney(this.props.elapsed, this.props.runningSince, this.props.salary, this.props.persons);
+	      this.setState({ spendedMoney: spendedMoney, elapsed: elapsed });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return (0, _preact.h)(
+	        'div',
+	        { className: _message2.default.flexitem },
+	        (0, _preact.h)(
+	          'ul',
+	          { className: _message2.default.message },
+	          (0, _preact.h)(
+	            'li',
+	            null,
+	            'Palaveri on kustantanut ',
+	            (0, _preact.h)(
+	              'span',
+	              { className: _message2.default.bigger },
+	              this.state.spendedMoney
+	            ),
+	            ' \u20AC.'
+	          ),
+	          (0, _preact.h)(
+	            'li',
+	            null,
+	            'Se on kest\xE4nyt jo ',
+	            (0, _preact.h)(
+	              'span',
+	              { className: _message2.default.bigger },
+	              this.state.elapsed
+	            ),
+	            '.'
+	          ),
+	          (0, _preact.h)(
+	            'li',
+	            null,
+	            'Siihen osallistuu ',
+	            (0, _preact.h)(
+	              'span',
+	              { className: _message2.default.bigger },
+	              this.props.persons
+	            ),
+	            ' henkil\xF6\xE4.'
+	          ),
+	          (0, _preact.h)(
+	            'li',
+	            null,
+	            'Sen keskipalkka on ',
+	            (0, _preact.h)(
+	              'span',
+	              { className: _message2.default.bigger },
+	              this.props.salary
+	            ),
+	            ' \u20AC.'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Message;
+	}(_preact.Component);
+	
+	exports.default = Message;
+
+/***/ },
+/* 11 */
+/*!******************************************!*\
+  !*** ./src/components/settings/index.js ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _preact = __webpack_require__(/*! preact */ 3);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Settings = function (_Component) {
+	  _inherits(Settings, _Component);
+	
+	  function Settings(props) {
+	    _classCallCheck(this, Settings);
+	
+	    var _this = _possibleConstructorReturn(this, (Settings.__proto__ || Object.getPrototypeOf(Settings)).call(this, props));
+	
+	    _this.handlePlayClick = _this.handlePlayClick.bind(_this);
+	    _this.handleRestartClick = _this.handleRestartClick.bind(_this);
+	    _this.handlePersonsChanged = _this.handlePersonsChanged.bind(_this);
+	    _this.handleSalaryChanged = _this.handleSalaryChanged.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Settings, [{
+	    key: 'handlePlayClick',
+	    value: function handlePlayClick() {
+	      this.props.runningSince ? this.props.handleTimerPause() : this.props.handleTimerStart();
+	    }
+	  }, {
+	    key: 'handleRestartClick',
+	    value: function handleRestartClick() {
+	      this.props.handleTimerRestart();
+	    }
+	  }, {
+	    key: 'handlePersonsChanged',
+	    value: function handlePersonsChanged(event) {
+	      var value = event.target.value;
+	      this.props.handlePersonsAdded(value);
+	    }
+	  }, {
+	    key: 'handleSalaryChanged',
+	    value: function handleSalaryChanged(event) {
+	      var value = event.target.value;
+	      this.props.handleSalaryAdded(value);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return (0, _preact.h)(
+	        'div',
+	        { className: 'settings' },
+	        (0, _preact.h)(
+	          'label',
+	          { 'for': 'persons' },
+	          'Henkil\xF6it\xE4'
+	        ),
+	        (0, _preact.h)('input', { type: 'number', id: 'persons', onChange: this.handlePersonsChanged }),
+	        (0, _preact.h)(
+	          'label',
+	          { 'for': 'salary' },
+	          'Avg tuntipalkka'
+	        ),
+	        (0, _preact.h)('input', { type: 'number', id: 'salary', onChange: this.handleSalaryChanged }),
+	        (0, _preact.h)(
+	          'div',
+	          { onClick: this.handlePlayClick, className: 'btn-play' },
+	          this.props.runningSince ? (0, _preact.h)(
+	            'h3',
+	            null,
+	            'Pause'
+	          ) : (0, _preact.h)(
+	            'h3',
+	            null,
+	            'Play'
+	          )
+	        ),
+	        (0, _preact.h)(
+	          'div',
+	          { onClick: this.handleRestartClick, className: 'btn-play' },
+	          (0, _preact.h)(
+	            'h3',
+	            null,
+	            'Restart'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Settings;
+	}(_preact.Component);
+	
+	exports.default = Settings;
+
+/***/ },
 /* 12 */
+/*!************************************************!*\
+  !*** ./src/components/dashboard/dashboard.css ***!
+  \************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./dashboard.css */ 13);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 9)(content, {"sourceMap":true});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./dashboard.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./dashboard.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 13 */
+/*!*************************************************************************************************************************************************!*\
+  !*** ./~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./src/components/dashboard/dashboard.css ***!
+  \*************************************************************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "body {\r\n  min-height: 100%;\r\n  margin: 0;\r\n  font-family: \"Helvetica Neue\",\"Calibri Light\",Roboto,sans-serif;\r\n  text-rendering: optimizeLegibility;\r\n  -webkit-font-smoothing: antialiased;\r\n}\r\n\r\n.src-components-dashboard-___dashboard__bgColor___5dcLS {\r\n  background-color: #FE8389;\r\n}\r\n\r\n.src-components-dashboard-___dashboard__context___cpqhG {\r\n  display: flex;\r\n  justify-content: center;\r\n  max-width: 1024px;\r\n  text-align: center;\r\n  margin: 0 auto;\r\n}\r\n", ""]);
+	
+	// exports
+	exports.locals = {
+		"bgColor": "src-components-dashboard-___dashboard__bgColor___5dcLS",
+		"context": "src-components-dashboard-___dashboard__context___cpqhG"
+	};
+
+/***/ },
+/* 14 */
 /*!****************!*\
   !*** ./pwa.js ***!
   \****************/
@@ -1402,26 +1505,26 @@
 
 
 /***/ },
-/* 13 */
-/*!******************************************!*\
-  !*** ./src/components/header/header.css ***!
-  \******************************************/
+/* 15 */
+/*!********************************************!*\
+  !*** ./src/components/message/message.css ***!
+  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./header.css */ 14);
+	var content = __webpack_require__(/*! !./../../../~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./message.css */ 16);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 11)(content, {"sourceMap":true});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 9)(content, {"sourceMap":true});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./header.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./header.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./message.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./message.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1431,23 +1534,24 @@
 	}
 
 /***/ },
-/* 14 */
-/*!*******************************************************************************************************************************************!*\
-  !*** ./~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./src/components/header/header.css ***!
-  \*******************************************************************************************************************************************/
+/* 16 */
+/*!*********************************************************************************************************************************************!*\
+  !*** ./~/css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./src/components/message/message.css ***!
+  \*********************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 10)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 8)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".src-components-header-___header__header___1ppLC {\r\n  background-color: #FE8389;\r\n}\r\n\r\n.src-components-header-___header__title___2LAyN {\r\n  font-size: 300;\r\n  margin: 0;\r\n  color: #fff;\r\n}\r\n", ""]);
+	exports.push([module.id, ".src-components-message-___message__flexitem___3OgqO {\r\n}\r\n\r\n.src-components-message-___message__message___2UXjY {\r\n  color: #fff;\r\n  font-size: 1.4em;\r\n  text-align: left;\r\n  padding: 0 20px;\r\n}\r\n\r\n.src-components-message-___message__message___2UXjY li {\r\n  list-style: none;\r\n  margin: 10px;\r\n}\r\n\r\n.src-components-message-___message__bigger___1a5uT {\r\n  font-size: 1.6em;\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"header": "src-components-header-___header__header___1ppLC",
-		"title": "src-components-header-___header__title___2LAyN"
+		"flexitem": "src-components-message-___message__flexitem___3OgqO",
+		"message": "src-components-message-___message__message___2UXjY",
+		"bigger": "src-components-message-___message__bigger___1a5uT"
 	};
 
 /***/ }

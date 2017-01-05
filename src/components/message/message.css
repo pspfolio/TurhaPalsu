@@ -1,0 +1,18 @@
+.flexitem {
+}
+
+.message {
+  color: #fff;
+  font-size: 1.4em;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.message li {
+  list-style: none;
+  margin: 10px;
+}
+
+.bigger {
+  font-size: 1.6em;
+}

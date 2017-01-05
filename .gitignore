@@ -1,5 +1,5 @@
 /node_modules
 /npm-debug.log
-/src/client/public/*
+/src/public/*
 .DS_Store
 /coverage

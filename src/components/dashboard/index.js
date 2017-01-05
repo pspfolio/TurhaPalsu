@@ -55,22 +55,26 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div className={styles.app}>
-        <div className={styles.headerContext}>
+      <div>
+        <div className={styles.bgColor}>
           <Header />
-          <Message
-            salary={ this.state.salary }
-            persons={ this.state.persons }
-            runningSince={ this.state.runningSince }
-            elapsed={ this.state.elapsed }/>
+          <section className={styles.context}>
+            <Message
+              salary={ this.state.salary }
+              persons={ this.state.persons }
+              runningSince={ this.state.runningSince }
+              elapsed={ this.state.elapsed }/>
+          </section>
         </div>
-        <Settings
-          runningSince={ this.state.runningSince }
-          handleSalaryAdded={ this.handleSalaryAdded }
-          handlePersonsAdded={ this.handlePersonsAdded }
-          handleTimerStart={ this.handleTimerStart }
-          handleTimerRestart={ this.handleTimerRestart }
-          handleTimerPause={ this.handleTimerPause } />
+        <section className={styles.context}>
+          <Settings
+            runningSince={ this.state.runningSince }
+            handleSalaryAdded={ this.handleSalaryAdded }
+            handlePersonsAdded={ this.handlePersonsAdded }
+            handleTimerStart={ this.handleTimerStart }
+            handleTimerRestart={ this.handleTimerRestart }
+            handleTimerPause={ this.handleTimerPause } />
+        </section>
       </div>
     )
   }
