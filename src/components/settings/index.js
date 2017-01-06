@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import styles from './settings.css';
 
 export default class Settings extends Component {
   constructor(props) {
@@ -30,12 +31,20 @@ export default class Settings extends Component {
 
   render() {
     return (
-      <div className='settings'>
-        <label for='persons'>Henkilöitä</label>
-        <input type='number' id='persons' onChange={ this.handlePersonsChanged } />
+      <div>
+        <div className={styles.settings}>
 
-        <label for='salary'>Avg tuntipalkka</label>
-        <input type='number' id='salary' onChange={ this.handleSalaryChanged } />
+          <div className={styles.item}>
+            <input className={`${styles.input} ${styles.personsIcon}`} type='number' id='persons' onChange={ this.handlePersonsChanged } />
+            <p className={styles.text}>Osallistujia</p>
+          </div>
+
+          <div className={styles.item}>
+            <input className={`${styles.input} ${styles.personsIcon}`} type='number' id='salary' onChange={ this.handleSalaryChanged } />
+            <p className={styles.text}>Keskipalkka</p>
+          </div>
+
+        </div>
 
         <div onClick={ this.handlePlayClick } className='btn-play'>
           {

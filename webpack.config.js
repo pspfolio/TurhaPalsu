@@ -16,6 +16,10 @@ module.exports = {
   module : {
     loaders : [
       {
+        test:  /\.svg$/,
+        loader: 'svg-url-loader'
+      },
+      {
         test : /\.jsx?/,
         include : APP_DIR,
         loader : 'babel'
