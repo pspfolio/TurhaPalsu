@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import Input from '../input';
 import styles from './settings.css';
 
 export default class Settings extends Component {
@@ -33,25 +34,14 @@ export default class Settings extends Component {
     return (
       <div>
         <div className={styles.settings}>
-
-          <div className={styles.item}>
-            <input className={`${styles.input} ${styles.personsIcon}`} type='number' id='persons' onChange={ this.handlePersonsChanged } />
-            <p className={styles.text}>Osallistujia</p>
-          </div>
-
-          <div className={styles.item}>
-            <input className={`${styles.input} ${styles.personsIcon}`} type='number' id='salary' onChange={ this.handleSalaryChanged } />
-            <p className={styles.text}>Keskipalkka</p>
-          </div>
-
+          <Input handler={this.handlePersonsChanged} text={'Osallistujia'} icon={'persons'} />
+          <Input handler={this.handleSalaryChanged} text={'Keskipalkka'} icon={'salary'} />
         </div>
-
         <div onClick={ this.handlePlayClick } className='btn-play'>
           {
             this.props.runningSince ? <h3>Pause</h3> : <h3>Play</h3>
           }
         </div>
-
         <div onClick={ this.handleRestartClick } className='btn-play'>
           <h3>Restart</h3>
         </div>

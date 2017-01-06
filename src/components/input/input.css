@@ -1,0 +1,30 @@
+
+.item {
+  flex-basis: 50%;
+}
+
+.text {
+  color: #FF2A68;
+}
+
+.input {
+  outline: none;
+  border-width: 0 0 1px 0;
+  border-color: #FF2A68;
+  font-size: 1.5em;
+  color: #FF2A68;
+  font-weight: 300;
+  width: 50%;
+  text-align: center;
+  overflow: hidden;
+  padding-left: 35px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.persons {
+  background: url("../../images/persons.svg") no-repeat;
+  height: 30px;
+}
