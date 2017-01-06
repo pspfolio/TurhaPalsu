@@ -4,7 +4,10 @@
 }
 
 .text {
-  color: #FF2A68;
+  color: #FF2A68; /* Muutettava, koska ei mene accessibilitystä läpi Lighthousessa*/
+  display: block;
+  margin-top: 15px;
+  font-size: 1.2em;
 }
 
 .input {
@@ -12,12 +15,12 @@
   border-width: 0 0 1px 0;
   border-color: #FF2A68;
   font-size: 1.5em;
-  color: #FF2A68;
   font-weight: 300;
   width: 50%;
   text-align: center;
   overflow: hidden;
   padding-left: 35px;
+  color: #FF2A68;
 }
 
 .input:focus {

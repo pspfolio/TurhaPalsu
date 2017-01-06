@@ -34,8 +34,8 @@ export default class Settings extends Component {
     return (
       <div>
         <div className={styles.settings}>
-          <Input handler={this.handlePersonsChanged} text={'Osallistujia'} icon={'persons'} type={'number'} />
-          <Input handler={this.handleSalaryChanged} text={'Keskipalkka'} icon={'salary'} type={'number'} />
+          <Input handler={this.handlePersonsChanged} text={'Osallistujia'} id={'persons'} icon={'persons'} type={'number'} />
+          <Input handler={this.handleSalaryChanged} text={'Keskipalkka'} id={'salary'} icon={'salary'} type={'number'} />
         </div>
         <div onClick={ this.handlePlayClick } className='btn-play'>
           {

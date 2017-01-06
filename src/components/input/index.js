@@ -5,8 +5,8 @@ export default class Input extends Component {
   render() {
     return(
       <div className={ styles.item }>
-        <input className={ `${styles.input} ${styles[this.props.icon]}` } type={ this.props.type } onChange={ this.props.handler } />
-        <p className={ styles.text }>{ this.props.text }</p>
+        <input className={ `${styles.input} ${styles[this.props.icon]}` } type={ this.props.type } id={this.props.id} onChange={ this.props.handler } />
+        <label for={this.props.id} className={ styles.text }>{ this.props.text }</label>
       </div>
     )
   }
