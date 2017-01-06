@@ -32,12 +32,13 @@ export default class Message extends Component {
   render() {
     return (
       <div className={styles.flexitem}>
-        <ul className={styles.message}>
-          <li>Palaveri on kustantanut <span className={styles.bigger}>{ this.state.spendedMoney }</span> €.</li>
-          <li>Se on kestänyt jo <span className={styles.bigger}>{ this.state.elapsed }</span>.</li>
-          <li>Siihen osallistuu <span className={styles.bigger}>{ this.props.persons }</span> henkilöä.</li>
-          <li>Sen keskipalkka on <span className={styles.bigger}>{ this.props.salary }</span> €.</li>
-        </ul>
+        <p className={`${styles.text} ${styles.timer}`}>
+          { this.state.elapsed }
+        </p>
+
+        <p className={`${styles.text} ${styles.money}`}>
+          { this.state.spendedMoney } €
+        </p>
       </div>
     )
   }

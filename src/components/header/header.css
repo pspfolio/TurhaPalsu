@@ -1,5 +1,7 @@
 .header {
-  background-color: #FE8389;
+  background-color: #FF2A68;
+  background: -webkit-linear-gradient(left, #FF2A68, #FF5E3A);
+  width: 100%;
 }
 
 .title {
@@ -8,9 +10,5 @@
   color: #fff;
   font-size: 2em;
   text-align: center;
-  padding: .5em;
-}
-
-.titleSecondary {
-  font-size: .7em;
+  padding: 1em;
 }

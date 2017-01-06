@@ -56,16 +56,14 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
-        <div className={styles.bgColor}>
-          <Header />
-          <section className={styles.context}>
-            <Message
-              salary={ this.state.salary }
-              persons={ this.state.persons }
-              runningSince={ this.state.runningSince }
-              elapsed={ this.state.elapsed }/>
-          </section>
-        </div>
+        <Header />
+        <section className={styles.context}>
+          <Message
+            salary={ this.state.salary }
+            persons={ this.state.persons }
+            runningSince={ this.state.runningSince }
+            elapsed={ this.state.elapsed }/>
+        </section>
         <section className={styles.context}>
           <Settings
             runningSince={ this.state.runningSince }
