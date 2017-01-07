@@ -30,13 +30,14 @@ export default class Message extends Component {
   }
 
   render() {
+    const style = this.props.runningSince ? `${styles.text} ${styles.timer}` : `${styles.text} ${styles.timer} ${styles.textPaused}`;
     return (
       <div className={styles.flexitem}>
-        <p className={`${styles.text} ${styles.timer}`}>
+        <p className={style}>
           { this.state.elapsed }
         </p>
 
-        <p className={`${styles.text} ${styles.money}`}>
+        <p className={style}>
           { this.state.spendedMoney } €
         </p>
       </div>
