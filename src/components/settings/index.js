@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import Input from '../input';
+import Counter from '../counter';
 import styles from './settings.css';
 
 export default class Settings extends Component {
@@ -29,20 +29,20 @@ export default class Settings extends Component {
       <div className={ styles.container }>
         <div className={ styles.settings }>
           <div className={ styles.item }>
-
-            <h3 className={ styles.counterHeader }>Osallistujia</h3>
-              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('DECREMENT', 'persons', 1) } }>-</span>
-              <span className={ styles.counter }>{ this.props.persons }</span>
-              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('INCREMENT', 'persons', 1) } }>+</span>
-
+            <Counter
+              header={ 'Osallistujia' }
+              handler={ this.props.handleCounter }
+              target={ 'persons' }
+              amount={ 1 }
+              value={ this.props.persons } />
           </div>
           <div className={ styles.item }>
-
-            <h3 className={ styles.counterHeader }>Keskipalkka / €</h3>
-              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('DECREMENT', 'salary', 5) } }>-</span>
-              <span className={ styles.counter }>{ this.props.salary }</span>
-              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('INCREMENT', 'salary', 5) } }>+</span>
-
+            <Counter
+              header={ 'Keskipalkka / €' }
+              handler={ this.props.handleCounter }
+              target={ 'salary' }
+              amount={ 5 }
+              value={ this.props.salary } />
           </div>
         </div>
 
