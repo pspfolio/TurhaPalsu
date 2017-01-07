@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
     super();
     this.state = {
       persons: 0,
-      salary: 0.00,
+      salary: 0,
       elapsed: 0,
       runningSince: null
     }
@@ -19,8 +19,7 @@ export default class Dashboard extends Component {
     this.handleTimerPause = this.handleTimerPause.bind(this);
     this.handleTimerStart = this.handleTimerStart.bind(this);
     this.handleTimerRestart = this.handleTimerRestart.bind(this);
-    this.handlePersonsAdded = this.handlePersonsAdded.bind(this);
-    this.handleSalaryAdded = this.handleSalaryAdded.bind(this);
+    this.handleCounter = this.handleCounter.bind(this);
   }
 
   /*
@@ -44,14 +43,27 @@ export default class Dashboard extends Component {
     this.setState({ runningSince: null, elapsed: 0 });
   }
 
-  handlePersonsAdded(num) {
-    this.setState({ persons: num })
+  handleCounter(type, target, amount) {
+    this.setState((prevState) => {
+      switch (type) {
+        case 'INCREMENT':
+          return {
+            [target]: prevState[target] + amount
+          }
+          break;
+        case 'DECREMENT':
+          if(this.state[target] > 0) {
+            return {
+              [target]: prevState[target] - amount
+            }
+          }
+          break;
+        default:
+          return prevState;
+      }
+    })
   }
 
-  handleSalaryAdded(salary) {
-    if(salary < 0) salary = 0.00;
-    this.setState({ salary })
-  }
 
   render() {
     return (
@@ -66,9 +78,10 @@ export default class Dashboard extends Component {
         </section>
         <section className={styles.context}>
           <Settings
+            persons={ this.state.persons }
+            salary={ this.state.salary}
             runningSince={ this.state.runningSince }
-            handleSalaryAdded={ this.handleSalaryAdded }
-            handlePersonsAdded={ this.handlePersonsAdded }
+            handleCounter={ this.handleCounter }
             handleTimerStart={ this.handleTimerStart }
             handleTimerRestart={ this.handleTimerRestart }
             handleTimerPause={ this.handleTimerPause } />

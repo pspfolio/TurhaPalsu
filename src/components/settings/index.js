@@ -8,7 +8,6 @@ export default class Settings extends Component {
 
     this.handlePlayClick = this.handlePlayClick.bind(this);
     this.handleRestartClick = this.handleRestartClick.bind(this);
-    this.handlePersonsChanged = this.handlePersonsChanged.bind(this);
     this.handleSalaryChanged = this.handleSalaryChanged.bind(this);
   }
 
@@ -20,11 +19,6 @@ export default class Settings extends Component {
     this.props.handleTimerRestart();
   }
 
-  handlePersonsChanged(event) {
-    const value = event.target.value;
-    this.props.handlePersonsAdded(value);
-  }
-
   handleSalaryChanged(event) {
     const value = event.target.value;
     this.props.handleSalaryAdded(value);
@@ -32,10 +26,24 @@ export default class Settings extends Component {
 
   render() {
     return (
-      <div>
+      <div className={ styles.container }>
         <div className={ styles.settings }>
-          <Input className={ styles.item } handler={ this.handlePersonsChanged } text={ 'Osallistujia' } id={ 'persons' } icon={ 'persons' } type={ 'number '} />
-          <Input className={ styles.item } handler={ this.handleSalaryChanged } text={ 'Keskipalkka' } id={ 'salary' } icon={ 'salary' } type={ 'number' } />
+          <div className={ styles.item }>
+
+            <h3 className={ styles.counterHeader }>Osallistujia</h3>
+              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('DECREMENT', 'persons', 1) } }>-</span>
+              <span className={ styles.counter }>{ this.props.persons }</span>
+              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('INCREMENT', 'persons', 1) } }>+</span>
+
+          </div>
+          <div className={ styles.item }>
+
+            <h3 className={ styles.counterHeader }>Keskipalkka / €</h3>
+              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('DECREMENT', 'salary', 5) } }>-</span>
+              <span className={ styles.counter }>{ this.props.salary }</span>
+              <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.props.handleCounter('INCREMENT', 'salary', 5) } }>+</span>
+
+          </div>
         </div>
 
         <div className={ styles.settings }>
