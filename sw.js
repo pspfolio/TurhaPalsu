@@ -1,6 +1,9 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
+  'src/images/pause.svg',
+  'src/images/play.svg',
+  'src/images/restart.svg',
   'src/public/bundle.js'
 ];
 
