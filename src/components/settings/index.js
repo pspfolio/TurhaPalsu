@@ -33,17 +33,23 @@ export default class Settings extends Component {
   render() {
     return (
       <div>
-        <div className={styles.settings}>
-          <Input handler={this.handlePersonsChanged} text={'Osallistujia'} id={'persons'} icon={'persons'} type={'number'} />
-          <Input handler={this.handleSalaryChanged} text={'Keskipalkka'} id={'salary'} icon={'salary'} type={'number'} />
+        <div className={ styles.settings }>
+          <Input className={ styles.item } handler={ this.handlePersonsChanged } text={ 'Osallistujia' } id={ 'persons' } icon={ 'persons' } type={ 'number '} />
+          <Input className={ styles.item } handler={ this.handleSalaryChanged } text={ 'Keskipalkka' } id={ 'salary' } icon={ 'salary' } type={ 'number' } />
         </div>
-        <div onClick={ this.handlePlayClick } className='btn-play'>
-          {
-            this.props.runningSince ? <h3>Pause</h3> : <h3>Play</h3>
-          }
-        </div>
-        <div onClick={ this.handleRestartClick } className='btn-play'>
-          <h3>Restart</h3>
+
+        <div className={ styles.settings }>
+          <div className={ styles.item }>
+            {
+              this.props.runningSince ?
+              <img onClick={ this.handlePlayClick } class={styles.btn} src='src/images/pause.svg' alt='pause' /> :
+              <img onClick={ this.handlePlayClick } class={styles.btn} src='src/images/play.svg' alt='play' />
+            }
+          </div>
+
+          <div className={ styles.item }>
+            <img className={ styles.item } onClick={ this.handleRestartClick } class={styles.btn} src='src/images/restart.svg' alt='play' />
+          </div>
         </div>
       </div>
     )

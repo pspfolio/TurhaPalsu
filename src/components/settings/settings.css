@@ -5,6 +5,15 @@
   justify-content: center;
 }
 
+.item {
+  flex-basis: 50%;
+}
+
+.btn {
+  height: 55px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 750px) {
   .text {
   }
