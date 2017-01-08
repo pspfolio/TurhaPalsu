@@ -38,7 +38,7 @@ export default class Settings extends Component {
           </div>
           <div className={ styles.item }>
             <Counter
-              header={ 'Keskipalkka / €' }
+              header={ 'Keskipalkka' }
               handler={ this.props.handleCounter }
               target={ 'salary' }
               amount={ 5 }

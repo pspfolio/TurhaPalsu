@@ -34,11 +34,13 @@ export default class Message extends Component {
     return (
       <div className={styles.flexitem}>
         <p className={style}>
+          <p className={styles.header}>Aikaa tuhlattu</p>
           { this.state.elapsed }
         </p>
 
         <p className={style}>
-          { this.state.spendedMoney } €
+          <p className={styles.header}>Rahaa poltettu</p>
+          { this.state.spendedMoney }
         </p>
       </div>
     )
