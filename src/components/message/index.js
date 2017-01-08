@@ -32,7 +32,7 @@ export default class Message extends Component {
   render() {
     const style = this.props.runningSince ? `${styles.text} ${styles.timer}` : `${styles.text} ${styles.timer} ${styles.textPaused}`;
     return (
-      <div className={styles.flexitem}>
+      <div className={styles.container}>
         <p className={style}>
           <p className={styles.header}>Aikaa tuhlattu</p>
           { this.state.elapsed }

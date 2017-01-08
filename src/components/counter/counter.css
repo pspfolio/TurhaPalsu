@@ -19,4 +19,18 @@
     font-size: 1.3em;
     margin: .2em;
   }
+
+  .counterButton {
+    margin: 0;
+  }
+
+  .counter {
+    display: block;
+  }
+
+  .counterValue {
+    font-size: 2em;
+    color: #c4c4c4;
+    font-weight: 300;
+  }
 }

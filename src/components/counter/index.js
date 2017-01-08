@@ -16,9 +16,9 @@ export default class Counter extends Component {
     return (
       <section>
         <h3 className={ styles.counterHeader }>{this.props.header}</h3>
-        <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.handleClick('DECREMENT') } }>-</span>
-        <span className={ styles.counter }>{ this.props.value }</span>
         <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.handleClick('INCREMENT') } }>+</span>
+        <span className={ styles.counterValue }>{ this.props.value }</span>
+        <span className={ `${styles.counterButton} ${styles.counter}` } onClick={ () => { this.handleClick('DECREMENT') } }>-</span>
       </section>
     )
   }

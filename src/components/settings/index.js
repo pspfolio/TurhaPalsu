@@ -46,7 +46,7 @@ export default class Settings extends Component {
           </div>
         </div>
 
-        <div className={ styles.settings }>
+        <div className={ `${ styles.settings } ${ styles.icons }` }>
           <div className={ styles.item }>
             {
               this.props.runningSince ?
