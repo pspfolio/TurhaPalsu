@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .counterHeader {
   color: #c4c4c4;
   font-size: 1.7em;
@@ -10,22 +15,21 @@
 }
 
 .counterButton {
-  margin: 1.5em;
   cursor: pointer;
 }
 
 @media only screen and (max-width: 750px) {
   .counterHeader {
-    font-size: 1.3em;
-    margin: .2em;
-  }
-
-  .counterButton {
+    font-size: 1.5em;
     margin: 0;
   }
 
+  .counterButton {
+
+  }
+
   .counter {
-    display: block;
+
   }
 
   .counterValue {

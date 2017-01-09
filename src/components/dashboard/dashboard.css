@@ -6,9 +6,11 @@ body {
 }
 
 .app {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
 }
 
 .bgColor {
@@ -18,5 +20,4 @@ body {
 .context {
   max-width: 1024px;
   text-align: center;
-  margin: 0 auto;
 }

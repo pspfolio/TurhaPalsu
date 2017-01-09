@@ -26,7 +26,7 @@ export default class Settings extends Component {
 
   render() {
     return (
-      <div className={ styles.container }>
+      <div>
         <div className={ styles.settings }>
           <div className={ styles.item }>
             <Counter

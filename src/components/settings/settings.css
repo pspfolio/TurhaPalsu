@@ -1,16 +1,11 @@
-.container {
-  margin-top: 80px;
-  width: 80%;
-}
-
 .settings {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .item {
-  flex-basis: 50%;
-  align-self: flex-end;
+  flex: 1;
+
 }
 
 .btn {
