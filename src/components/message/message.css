@@ -1,12 +1,19 @@
 .container {
-  margin-top: 20px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flexItem {
+  flex: 1 1 auto;
 }
 
 .text {
   color: #FF2A68;
+  font-size: 5em;
   font-weight: 300;
-  margin: 30px 0;
   transition: .3s ease-out all;
+  margin: 0;
 }
 
 .textPaused {
@@ -14,24 +21,19 @@
   transition: .3s ease-out all;
 }
 
-.timer {
-  font-size: 5em;
-}
-
 .header {
-  font-size: .7em;
+  font-size: 2em;
   font-weight: 300;
-  margin: 10px;
   color: #C4C4C4;
+  margin: .5em;
 }
 
 @media only screen and (max-width: 750px) {
   .text {
-      margin: 10px 0;
+    font-size: 2em;
   }
 
-  .timer {
+  .header {
     font-size: 2em;
-    margin-top: 20px;
   }
 }

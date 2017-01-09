@@ -67,7 +67,7 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.app}>
         <Header />
         <section className={styles.context}>
           <Message

@@ -1,9 +1,14 @@
 body {
-  min-height: 100%;
   margin: 0;
   font-family: "Roboto", "Helvetica Neue","Calibri Light",Roboto,sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .bgColor {
@@ -11,8 +16,6 @@ body {
 }
 
 .context {
-  display: flex;
-  justify-content: center;
   max-width: 1024px;
   text-align: center;
   margin: 0 auto;

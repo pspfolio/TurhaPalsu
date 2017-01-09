@@ -30,18 +30,18 @@ export default class Message extends Component {
   }
 
   render() {
-    const style = this.props.runningSince ? `${styles.text} ${styles.timer}` : `${styles.text} ${styles.timer} ${styles.textPaused}`;
+    const style = this.props.runningSince ? `${styles.text}` : `${styles.text} ${styles.textPaused}`;
     return (
       <div className={styles.container}>
-        <p className={style}>
-          <p className={styles.header}>Aikaa tuhlattu</p>
-          { this.state.elapsed }
-        </p>
+        <div className={styles.flexItem}>
+          <h3 className={styles.header}>Aikaa tuhlattu</h3>
+          <p className={style}>{ this.state.elapsed }</p>
+        </div>
 
-        <p className={style}>
-          <p className={styles.header}>Rahaa poltettu</p>
-          { this.state.spendedMoney }
-        </p>
+        <div className={styles.flexItem}>
+          <h3 className={styles.header}>Rahaa poltettu</h3>
+          <p className={style}>{ this.state.spendedMoney }</p>
+        </div>
       </div>
     )
   }

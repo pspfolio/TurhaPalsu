@@ -10,6 +10,7 @@
 
 .item {
   flex-basis: 50%;
+  align-self: flex-end;
 }
 
 .btn {
