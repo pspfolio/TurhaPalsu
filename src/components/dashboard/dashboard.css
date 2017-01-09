@@ -13,10 +13,6 @@ body {
   justify-content: space-between;
 }
 
-.bgColor {
-  background-color: #673ab8;
-}
-
 .context {
   max-width: 1024px;
   text-align: center;

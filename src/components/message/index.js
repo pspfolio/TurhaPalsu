@@ -15,7 +15,7 @@ export default class Message extends Component {
   }
 
   componentDidMount() {
-      this.updateInterval = setInterval(this.tick, 50);
+    this.updateInterval = setInterval(this.tick, 50);
   }
 
   componentWillUnmount() {
@@ -32,15 +32,15 @@ export default class Message extends Component {
   render() {
     const style = this.props.runningSince ? `${styles.text}` : `${styles.text} ${styles.textPaused}`;
     return (
-      <div className={styles.container}>
-        <div className={styles.flexItem}>
-          <h3 className={styles.header}>Aikaa tuhlattu</h3>
-          <p className={style}>{ this.state.elapsed }</p>
+      <div className={ styles.container }>
+        <div className={ styles.flexItem }>
+          <h3 className={ styles.header }>Aikaa tuhlattu</h3>
+          <p className={ style }>{ this.state.elapsed }</p>
         </div>
 
-        <div className={styles.flexItem}>
-          <h3 className={styles.header}>Rahaa poltettu</h3>
-          <p className={style}>{ this.state.spendedMoney }</p>
+        <div className={ styles.flexItem }>
+          <h3 className={ styles.header }>Rahaa poltettu</h3>
+          <p className={ style }>{ this.state.spendedMoney }</p>
         </div>
       </div>
     )
