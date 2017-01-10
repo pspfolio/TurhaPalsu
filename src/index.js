@@ -1,6 +1,6 @@
 import { h, render, Component } from 'preact';
 import Dashboard from './components/dashboard';
-require('../pwa.js')
+require('./pwa.js')
 
 class App extends Component {
   render() {

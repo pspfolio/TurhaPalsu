@@ -1,0 +1,25 @@
+{
+  "hosting": {
+    "public": "public",
+      "headers": [
+        {
+          "source": "**/*.@(js|json|ico|png|html)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "**/service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0"
+            }
+          ]
+        }
+      ]
+  }
+}
