@@ -1,7 +1,7 @@
 (function() {
   // Tarkastetaan, että selain tukee service workeriä
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(err => {
+    navigator.serviceWorker.register('/sw.js').catch(function(err) {
       console.log(err, "ERROR")
     });
   } else {

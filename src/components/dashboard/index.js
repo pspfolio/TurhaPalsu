@@ -59,14 +59,12 @@ export default class Dashboard extends Component {
           return {
             [target]: prevState[target] + amount
           }
-          break;
         case 'DECREMENT':
           if(this.state[target] > 0) {
             return {
               [target]: prevState[target] - amount
             }
           }
-          break;
         default:
           return prevState;
       }

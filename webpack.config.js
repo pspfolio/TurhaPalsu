@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var BUILD_DIR = path.resolve(__dirname, 'src/public');
 var APP_DIR = path.resolve(__dirname, 'src');
@@ -26,11 +27,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
-            'style?sourceMap',
-            'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-          ]
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
       },
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('app.css', {
+             allChunks: true
+         }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ]
 };
