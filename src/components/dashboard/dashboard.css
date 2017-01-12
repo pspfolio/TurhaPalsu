@@ -6,14 +6,24 @@ body {
 }
 
 .app {
-  height: 90vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .context {
-  max-width: 1024px;
+  width: 65vw;
   text-align: center;
+}
+
+@media only screen and (max-width: 750px) {
+
+  .context {
+    width: 85vw;
+    text-align: center;
+  }
+
 }

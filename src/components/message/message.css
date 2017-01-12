@@ -16,23 +16,23 @@
 }
 
 .textPaused {
-  color: #C4C4C4;
+  color: #7f8c8d;
   transition: .3s ease-out all;
 }
 
 .header {
   font-size: 2em;
   font-weight: 300;
-  color: #C4C4C4;
+  color: #7f8c8d;
   margin: .5em;
 }
 
 @media only screen and (max-width: 750px) {
   .text {
-    font-size: 2em;
+    font-size: 3em;
   }
 
   .header {
-    font-size: 2em;
+    font-size: 1.3em;
   }
 }

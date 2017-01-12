@@ -74,8 +74,9 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div className={ styles.app }>
+      <div>
         <Header />
+      <div className={ styles.app }>
         <section className={ styles.context }>
           <Message
             salary={ this.state.salary }
@@ -98,6 +99,7 @@ export default class Dashboard extends Component {
             runningSince={ this.state.runningSince } />
         </section>
       </div>
+    </div>
     )
   }
 }
