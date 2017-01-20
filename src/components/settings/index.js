@@ -14,7 +14,7 @@ export default ({ handleCounter, persons, salary }) => (
       </div>
       <div className={ styles.item }>
         <Counter
-          header={ 'Keskipalkka' }
+          header={ '€ / h' }
           handler={ handleCounter }
           target={ 'salary' }
           amount={ 5 }

@@ -34,7 +34,7 @@ export default class Message extends Component {
     return (
       <div className={ styles.container }>
         <div className={ styles.flexItem }>
-          <h3 className={ styles.header }>Aikaa tuhlattu</h3>
+          <h3 className={ styles.header }>Aikaa kulunut</h3>
           <p className={ style }>{ this.state.elapsed }</p>
         </div>
 

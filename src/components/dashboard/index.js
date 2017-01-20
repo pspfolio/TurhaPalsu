@@ -12,8 +12,8 @@ export default class Dashboard extends Component {
     super();
 
     this.state = {
-      persons: 0,
-      salary: 0,
+      persons: 5,
+      salary: 45,
       elapsed: 0,
       runningSince: null
     }
@@ -60,7 +60,7 @@ export default class Dashboard extends Component {
             [target]: prevState[target] + amount
           }
         case 'DECREMENT':
-          if(this.state[target] > 0) {
+          if(this.state[target] > 1) {
             return {
               [target]: prevState[target] - amount
             }
