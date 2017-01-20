@@ -1,4 +1,4 @@
-var CACHE_NAME = 'turhapalsu';
+var CACHE_NAME = 'turhapalsu_v2';
 var urlsToCache = [
   '/',
   'images/pause.svg',
@@ -26,5 +26,19 @@ self.addEventListener('fetch', function(event) {
       return fetch(event.request);
     })
   )
+});
 
+self.addEventListener('activate', function(event) {
+  const keepCache = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if(keepCache.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
