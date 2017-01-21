@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import Header from '../header';
 import Message from '../message';
-import Settings from '../settings';
+import Counters from '../counters';
 import Controls from '../controls';
 
 import styles from './dashboard.css';
@@ -15,7 +15,7 @@ export default class Dashboard extends Component {
       persons: 5,
       salary: 45,
       elapsed: 0,
-      runningSince: null
+      runningSince: null,
     }
 
     this.handleTimerPause = this.handleTimerPause.bind(this);
@@ -85,7 +85,7 @@ export default class Dashboard extends Component {
             elapsed={ this.state.elapsed }/>
         </section>
         <section className={ styles.context }>
-          <Settings
+          <Counters
             persons={ this.state.persons }
             salary={ this.state.salary}
             handleCounter={ this.handleCounter } />
@@ -93,9 +93,12 @@ export default class Dashboard extends Component {
         </section>
         <section className={ styles.context }>
           <Controls
-            handleTimerStart={ this.handleTimerStart }
+            handleTimerPlayOrPause={
+              this.state.runningSince ? this.handleTimerPause :
+                                        this.handleTimerStart
+            }
+            iconPath={ this.state.runningSince ? 'pause.svg' : 'play.svg' }
             handleTimerRestart={ this.handleTimerRestart }
-            handleTimerPause={ this.handleTimerPause }
             runningSince={ this.state.runningSince } />
         </section>
       </div>
