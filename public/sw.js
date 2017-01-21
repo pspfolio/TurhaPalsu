@@ -1,10 +1,11 @@
-var CACHE_NAME = 'turhapalsu_v2';
+var CACHE_NAME = 'turhapalsu_v3';
 var urlsToCache = [
   '/',
   'images/pause.svg',
   'images/play.svg',
   'images/restart.svg',
-  'bundle.js'
+  'bundle.js',
+  'app.css'
 ];
 
 self.addEventListener('install', function(event) {
