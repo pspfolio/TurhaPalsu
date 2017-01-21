@@ -137,7 +137,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	__webpack_require__(/*! ./pwa.js */ 15);
+	__webpack_require__(/*! ./pwa.js */ 16);
 	
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -684,7 +684,7 @@
 	
 	var _controls2 = _interopRequireDefault(_controls);
 	
-	var _dashboard = __webpack_require__(/*! ./dashboard.css */ 14);
+	var _dashboard = __webpack_require__(/*! ./dashboard.css */ 15);
 	
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 	
@@ -810,8 +810,8 @@
 	            (0, _preact.h)(_controls2.default, {
 	              handleTimerPlayOrPause: this.state.runningSince ? this.handleTimerPause : this.handleTimerStart,
 	              iconPath: this.state.runningSince ? 'pause.svg' : 'play.svg',
-	              handleTimerRestart: this.handleTimerRestart,
-	              runningSince: this.state.runningSince })
+	              handleTimerRestart: this.handleTimerRestart
+	            })
 	          )
 	        )
 	      );
@@ -965,7 +965,8 @@
 	          (0, _preact.h)(
 	            'p',
 	            { className: style },
-	            this.state.spendedMoney
+	            this.state.spendedMoney,
+	            ' \u20AC'
 	          )
 	        )
 	      );
@@ -1164,7 +1165,7 @@
 	
 	var _preact = __webpack_require__(/*! preact */ 3);
 	
-	var _controls = __webpack_require__(/*! ./controls.css */ 16);
+	var _controls = __webpack_require__(/*! ./controls.css */ 14);
 	
 	var _controls2 = _interopRequireDefault(_controls);
 	
@@ -1192,6 +1193,16 @@
 
 /***/ },
 /* 14 */
+/*!**********************************************!*\
+  !*** ./src/components/controls/controls.css ***!
+  \**********************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"settings":"controls__settings___KsVmX","item":"controls__item___1MrIf","btn":"controls__btn___rlB_Y"};
+
+/***/ },
+/* 15 */
 /*!************************************************!*\
   !*** ./src/components/dashboard/dashboard.css ***!
   \************************************************/
@@ -1201,7 +1212,7 @@
 	module.exports = {"app":"dashboard__app___2fVli","context":"dashboard__context___cpqhG"};
 
 /***/ },
-/* 15 */
+/* 16 */
 /*!********************!*\
   !*** ./src/pwa.js ***!
   \********************/
@@ -1219,16 +1230,6 @@
 	    console.log("Serviceworker is not supported, keep going!");
 	  }
 	})();
-
-/***/ },
-/* 16 */
-/*!**********************************************!*\
-  !*** ./src/components/controls/controls.css ***!
-  \**********************************************/
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"settings":"controls__settings___KsVmX","item":"controls__item___1MrIf","btn":"controls__btn___rlB_Y"};
 
 /***/ }
 /******/ ]);

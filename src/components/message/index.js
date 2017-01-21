@@ -40,7 +40,7 @@ export default class Message extends Component {
 
         <div className={ styles.flexItem }>
           <h3 className={ styles.header }>Rahaa poltettu</h3>
-          <p className={ style }>{ this.state.spendedMoney }</p>
+          <p className={ style }>{ this.state.spendedMoney } €</p>
         </div>
       </div>
     )

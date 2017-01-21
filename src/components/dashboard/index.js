@@ -89,7 +89,6 @@ export default class Dashboard extends Component {
             persons={ this.state.persons }
             salary={ this.state.salary}
             handleCounter={ this.handleCounter } />
-
         </section>
         <section className={ styles.context }>
           <Controls
@@ -99,7 +98,7 @@ export default class Dashboard extends Component {
             }
             iconPath={ this.state.runningSince ? 'pause.svg' : 'play.svg' }
             handleTimerRestart={ this.handleTimerRestart }
-            runningSince={ this.state.runningSince } />
+            />
         </section>
       </div>
     </div>
