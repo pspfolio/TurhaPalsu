@@ -77,29 +77,13 @@ export default class Dashboard extends Component {
       <div>
         <Header />
       <div className={ styles.app }>
-        <section className={ styles.context }>
-          <Message
-            salary={ this.state.salary }
-            persons={ this.state.persons }
-            runningSince={ this.state.runningSince }
-            elapsed={ this.state.elapsed }/>
-        </section>
-        <section className={ styles.context }>
-          <Counters
-            persons={ this.state.persons }
-            salary={ this.state.salary}
-            handleCounter={ this.handleCounter } />
-        </section>
-        <section className={ styles.context }>
-          <Controls
-            handleTimerPlayOrPause={
-              this.state.runningSince ? this.handleTimerPause :
-                                        this.handleTimerStart
-            }
-            iconPath={ this.state.runningSince ? 'pause.svg' : 'play.svg' }
-            handleTimerRestart={ this.handleTimerRestart }
-            />
-        </section>
+        <Message {...this.state} />
+        <Counters persons={ this.state.persons } salary={ this.state.salary} handleCounter={ this.handleCounter } />
+        <Controls
+          handleTimerPlayOrPause={ this.state.runningSince ? this.handleTimerPause : this.handleTimerStart }
+          iconPath={ this.state.runningSince ? 'pause.svg' : 'play.svg' }
+          handleTimerRestart={ this.handleTimerRestart }
+        />
       </div>
     </div>
     )

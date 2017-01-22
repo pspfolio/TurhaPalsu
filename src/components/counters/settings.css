@@ -1,8 +1,17 @@
 .container {
   display: flex;
   justify-content: space-between;
+  width: 50vw;
+  text-align: center;
 }
 
 .item {
   flex: 1;
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    width: 65vw;
+    text-align: center;
+  }
 }

@@ -3,6 +3,7 @@ import Counter from '../counter';
 import styles from './settings.css';
 
 export default ({ handleCounter, persons, salary }) => (
+  <div>
     <div className={ styles.container }>
       <div className={ styles.item }>
         <Counter
@@ -21,4 +22,5 @@ export default ({ handleCounter, persons, salary }) => (
           value={ salary } />
       </div>
     </div>
+  </div>
 )

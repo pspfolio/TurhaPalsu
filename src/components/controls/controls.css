@@ -1,6 +1,8 @@
-.settings {
+.container {
   display: flex;
   justify-content: space-between;
+  width: 50vw;
+  text-align: center;
 }
 
 .item {
@@ -13,6 +15,10 @@
 }
 
 @media only screen and (max-width: 750px) {
+  .container {
+    width: 65vw;
+    text-align: center;
+  }
 
   .btn {
     height: 35px;
