@@ -1,4 +1,4 @@
-var CACHE_NAME = 'turhapalsu_v3';
+var CACHE_NAME = 'turhapalsu_v4';
 var urlsToCache = [
   '/',
   'images/pause.svg',
