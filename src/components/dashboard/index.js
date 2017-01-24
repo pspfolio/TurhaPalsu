@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import Header from '../header';
-import Message from '../message';
+import Messages from '../messages';
 import Counters from '../counters';
 import Controls from '../controls';
 
@@ -77,7 +77,7 @@ export default class Dashboard extends Component {
       <div>
         <Header />
       <div className={ styles.app }>
-        <Message {...this.state} />
+        <Messages {...this.state} />
         <Counters persons={ this.state.persons } salary={ this.state.salary} handleCounter={ this.handleCounter } />
         <Controls
           handleTimerPlayOrPause={ this.state.runningSince ? this.handleTimerPause : this.handleTimerStart }
